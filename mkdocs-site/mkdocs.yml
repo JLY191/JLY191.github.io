@@ -1,5 +1,127 @@
-site_name: The nowhere inn 
+site_name: The Nowhere Inn 
 site_url: https://jly191.github.io
 site_author: JLY 
+repo_url: https://github.com/JLY191/ZJU_SE_Course
+repo_name: ZJU_SE_Course
+copyright: Copyright &copy; 2023 JLY
+nav:
+  - 🏠 Home: index.md
+  - ✍️ Blog:
+    - blog/index.md
+  - 🧑‍💻 Dev: 
+    - dev/index.md
+  - 📖 Course: 
+    - course/index.md
+    - oslab: 
+      - oslab0: course/oslab/oslab0.md
+      - oslab1: course/oslab/oslab1.md
 theme: 
   name: material
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      primary: light blue
+      accent : deep purple
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      primary: deep purple
+      accent : light blue
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.prune
+    - navigation.footer
+
+    - toc.follow
+    - toc.integrate
+
+    - search.suggest
+
+    - header.autohide
+    - content.code.annotate
+  font:
+    text: San Francisco
+    code: Roboto Mono
+  language: zh
+  favicon: images/favicon.jpg
+  logo: images/favicon.jpg
+extra:
+  generator: false
+  analytics: 
+    provider: google
+    property: G-XXXXXXXXXX
+    feedback:
+      title: 咦，这里怎么有一只小猫咪
+      ratings:
+        - icon: material/cat
+          name: This page was helpful
+          data: 1
+          note: >-
+            小猫咪很开心！
+  social:
+    - icon: fontawesome/brands/github 
+      link: https://github.com/jly191
+plugins:
+  - search
+  - rss:
+      match_path: blog/posts/.* 
+      date_from_meta:
+        as_creation: date
+      categories:
+        - categories
+        - tags
+  - blog:
+      blog_dir: ./blog
+
+markdown_extensions:
+  - markdown.extensions.admonition
+  - markdown.extensions.attr_list
+  - markdown.extensions.codehilite:
+      guess_lang: false
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - markdown.extensions.toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  # - pymdownx.highlight:
+  #     linenums_style: pymdownx-inline
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde

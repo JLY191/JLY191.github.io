@@ -1,17 +1,29 @@
-# Welcome to MkDocs
+# 你好👋
+欢迎来到我的网站！  
+ZJU 2021级 软件工程本科在读。  
+写点有意思的东西。  
+无畏契约：我开摆了你呢#1987。欢迎约瓦。
+## Let's Go!
+```go
+func main() {
+    fmt.Println("Let's Go!");
+}
+```  
+## 一首喜欢的小诗（节选）
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+你，如今不记得
 
-## Commands
+从另一个世界到来的跋涉，
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+我告诉你我又能讲话了：一切
 
-## Project layout
+从遗忘中返回的，返回
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+去发现一个声音：
+
+从我生命的核心，涌起
+
+巨大的喷泉，湛蓝色
+
+投影在蔚蓝的海水上
+
