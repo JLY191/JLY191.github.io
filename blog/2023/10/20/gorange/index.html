@@ -10,31 +10,27 @@
         <meta name="author" content="JLY">
       
       
-        <link rel="canonical" href="https://jly191.github.io/blog/">
+        <link rel="canonical" href="https://jly191.github.io/blog/2023/10/20/gorange/">
       
       
-        <link rel="prev" href="..">
       
       
-        <link rel="next" href="category/go/">
+        <link rel="alternate" type="application/rss+xml" title="RSS 订阅" href="../../../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="已更新内容的 RSS 订阅" href="../../../../../feed_rss_updated.xml">
       
-      
-        <link rel="alternate" type="application/rss+xml" title="RSS 订阅" href="../feed_rss_created.xml">
-        <link rel="alternate" type="application/rss+xml" title="已更新内容的 RSS 订阅" href="../feed_rss_updated.xml">
-      
-      <link rel="icon" href="../images/favicon.jpg">
+      <link rel="icon" href="../../../../../images/favicon.jpg">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
     
     
       
-        <title>Blog - The Nowhere Inn</title>
+        <title>Go的range - The Nowhere Inn</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.35e1ed30.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.35e1ed30.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -53,7 +49,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -92,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#blog" class="md-skip">
+        <a href="#gorange" class="md-skip">
           跳转至
         </a>
       
@@ -108,9 +104,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href=".." title="The Nowhere Inn" class="md-header__button md-logo" aria-label="The Nowhere Inn" data-md-component="logo">
+    <a href="../../../../.." title="The Nowhere Inn" class="md-header__button md-logo" aria-label="The Nowhere Inn" data-md-component="logo">
       
-  <img src="../images/favicon.jpg" alt="logo">
+  <img src="../../../../../images/favicon.jpg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -127,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Blog
+              Go的range
             
           </span>
         </div>
@@ -227,7 +223,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../../../../.." class="md-tabs__link">
         
   
     
@@ -248,7 +244,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+        <a href="../../../../" class="md-tabs__link">
           
   
   ✍️ Blog
@@ -266,7 +262,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../dev/" class="md-tabs__link">
+        <a href="../../../../../dev/" class="md-tabs__link">
           
   
   🧑‍💻 Dev
@@ -284,7 +280,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../course/" class="md-tabs__link">
+        <a href="../../../../../course/" class="md-tabs__link">
           
   
   📖 Course
@@ -312,7 +308,9 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -325,9 +323,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="The Nowhere Inn" class="md-nav__button md-logo" aria-label="The Nowhere Inn" data-md-component="logo">
+    <a href="../../../../.." title="The Nowhere Inn" class="md-nav__button md-logo" aria-label="The Nowhere Inn" data-md-component="logo">
       
-  <img src="../images/favicon.jpg" alt="logo">
+  <img src="../../../../../images/favicon.jpg" alt="logo">
 
     </a>
     The Nowhere Inn
@@ -353,7 +351,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../../../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -415,14 +413,7 @@
   
   
     <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="../../../../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -431,7 +422,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -484,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="archive/2023/" class="md-nav__link">
+      <a href="../../../../archive/2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -553,7 +543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="category/go/" class="md-nav__link">
+      <a href="../../../../category/go/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -573,7 +563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="category/interesting/" class="md-nav__link">
+      <a href="../../../../category/interesting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -649,7 +639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/" class="md-nav__link">
+      <a href="../../../../../dev/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -717,7 +707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../course/" class="md-nav__link">
+      <a href="../../../../../course/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -778,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../course/oslab/oslab0/" class="md-nav__link">
+      <a href="../../../../../course/oslab/oslab0/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -798,7 +788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../course/oslab/oslab1/" class="md-nav__link">
+      <a href="../../../../../course/oslab/oslab1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -836,67 +826,147 @@
             
           
           
-  <div class="md-content" data-md-component="content">
-    <div class="md-content__inner">
-      <header class="md-typeset">
-        <h1 id="blog">Blog<a class="headerlink" href="#blog" title="Permanent link">&para;</a></h1>
-      </header>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2023-10-20 00:00:00">2023年10月20日</time></li>
-        
-          <li class="md-meta__item">
-            分类于
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+                  <span class="md-ellipsis">
+                    回到主页
+                  </span>
+                </a>
+              </div>
+            </div>
             
-              <a href="category/go/" class="md-meta__link">Go</a>, 
-              <a href="category/interesting/" class="md-meta__link">Interesting</a></li>
-        
-        
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    元数据
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
+                        <time datetime="2023-10-20 00:00:00" class="md-ellipsis">2023年10月20日</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3H9m3 2 4 13 3-1-4-13-3 1M5 5v13h3V5H5M3 19v2h18v-2H3Z"/></svg>
+                          <span class="md-ellipsis">
+                            分类于
+                            
+                              <a href="../../../../category/go/">Go</a>, 
+                              <a href="../../../../category/interesting/">Interesting</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              需要 1 分钟阅读时间
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+          </nav>
           
-          <li class="md-meta__item">
             
-              需要 1 分钟阅读时间
-            
-          </li>
-        
-      </ul>
-      
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+</nav>
+          
+        </div>
+      </div>
     </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="gorange"><a class="toclink" href="2023/10/20/gorange/">Go的range</a></h2>
+    <article class="md-content__inner md-typeset">
+      
+        
+
+  
+  
+
+
+<h1 id="gorange">Go的range<a class="headerlink" href="#gorange" title="Permanent link">&para;</a></h1>
 <p>在下面的代码中，请问输出是什么？
 <div class="highlight"><pre><span></span><code><span class="nx">l</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">}</span><span class="w">  </span>
 <span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">l</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%d, %p&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">v</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div></p>
+<!-- more -->
 
-    <nav class="md-post__action">
-      <a href="2023/10/20/gorange/">
-        继续阅读
-      </a>
-    </nav>
-  </div>
-</article>
-      
-      
-        
-          
+<p>答案是:
+<div class="highlight"><pre><span></span><code>1 某个地址A
+2 A
+3 A
+</code></pre></div>
+你可能觉得很奇怪，为什么通过<code>range</code>得到的<code>v</code>值不一样，但是地址一样呢？  </p>
+<p>假设Go是一家漫画店的老板，最近有个3页的漫画，你想去看。Go老板拿出一台pad，上面一次只能显示一页漫画。于是，你通过同一个pad读取了三页不同的漫画。  </p>
+<p>这就是range的设计方式，Go认为你通过range是想读一个变量，而不是得到变量本身。于是，在遍历一个元素<code>var A []T</code>的时候Go会开辟一个类型<code>T</code>的一块空间，每次遍历，就从<code>A</code>的对应位置读值，赋给开辟的空间。也就是说，每次遍历都是在同一个内存地址读副本。</p>
 
 
-
-<nav class="md-pagination">
   
-</nav>
-        
+
+
+  
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        咦，这里怎么有一只小猫咪
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 8-1.33.09C9.81 7.07 7.4 4.5 5 4.5c0 0-1.97 2.96-.04 6.91-.55.83-.89 1.26-.96 2.25l-1.93.29.21.98 1.76-.26.14.71-1.57.94.47.89 1.45-.89C5.68 18.76 8.59 20 12 20s6.32-1.24 7.47-3.68l1.45.89.47-.89-1.57-.94.14-.71 1.76.26.21-.98-1.93-.29c-.07-.99-.41-1.42-.96-2.25C20.97 7.46 19 4.5 19 4.5c-2.4 0-4.81 2.57-5.67 3.59L12 8m-3 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 3h2l-.7 1.39c.2.64.76 1.11 1.45 1.11a1.5 1.5 0 0 0 1.5-1.5h.5a2 2 0 0 1-2 2c-.75 0-1.4-.41-1.75-1-.35.59-1 1-1.75 1a2 2 0 0 1-2-2h.5a1.5 1.5 0 0 0 1.5 1.5c.69 0 1.25-.47 1.45-1.11L11 14Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              小猫咪很开心！
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
       
-    </div>
+    </article>
   </div>
 
           
@@ -906,44 +976,6 @@
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
-        
-          
-          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="上一页: 🏠 Home">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                上一页
-              </span>
-              <div class="md-ellipsis">
-                🏠 Home
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="category/go/" class="md-footer__link md-footer__link--next" aria-label="下一页: Go">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                Go
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -984,10 +1016,10 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune", "navigation.footer", "toc.follow", "toc.integrate", "search.suggest", "header.autohide", "content.code.annotate"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune", "navigation.footer", "toc.follow", "toc.integrate", "search.suggest", "header.autohide", "content.code.annotate"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.aecac24b.min.js"></script>
       
     
   </body>
