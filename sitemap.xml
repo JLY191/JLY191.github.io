@@ -16,6 +16,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://jly191.github.io/blog/2023/10/19/</loc>
+         <lastmod>2023-10-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://jly191.github.io/course/</loc>
          <lastmod>2023-10-20</lastmod>
          <changefreq>daily</changefreq>
@@ -47,6 +52,11 @@
     </url>
     <url>
          <loc>https://jly191.github.io/blog/category/interesting/</loc>
+         <lastmod>2023-10-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://jly191.github.io/blog/category/debug/</loc>
          <lastmod>2023-10-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
