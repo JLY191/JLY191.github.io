@@ -1,0 +1,1697 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="JLY">
+      
+      
+        <link rel="canonical" href="https://jly191.github.io/course/oslab/oslab6/">
+      
+      
+        <link rel="prev" href="../oslab5/">
+      
+      
+        <link rel="next" href="../../blockchain/basics/">
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS 订阅" href="../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="已更新内容的 RSS 订阅" href="../../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../../images/favicon.jpg">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+    
+    
+      
+        <title>oslab6指导 - The Nowhere Inn</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.35e1ed30.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=San+Francisco:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"San Francisco";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-XXXXXXXXXX"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-XXXXXXXXXX",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="deep-purple">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-6-fork" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="The Nowhere Inn" class="md-header__button md-logo" aria-label="The Nowhere Inn" data-md-component="logo">
+      
+  <img src="../../../images/favicon.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            The Nowhere Inn
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              oslab6指导
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/JLY191/ZJU_SE_Course" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ZJU_SE_Course
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  🏠 Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../blog/" class="md-tabs__link">
+          
+  
+  ✍️ Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../dev/" class="md-tabs__link">
+          
+  
+  🧑‍💻 Dev
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  📖 Course
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="The Nowhere Inn" class="md-nav__button md-logo" aria-label="The Nowhere Inn" data-md-component="logo">
+      
+  <img src="../../../images/favicon.jpg" alt="logo">
+
+    </a>
+    The Nowhere Inn
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/JLY191/ZJU_SE_Course" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ZJU_SE_Course
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    🏠 Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    ✍️ Blog
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ✍️ Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    归档
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            归档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/archive/2023/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    分类
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            分类
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/go/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/interesting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interesting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/debug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debug
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    🧑‍💻 Dev
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            🧑‍💻 Dev
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Talk is cheap, show me the code.
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    regex
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            regex
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/regex/regex/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    regex basic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    📖 Course
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            📖 Course
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    早八谋杀人类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    oslab
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            oslab
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oslab0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    oslab0指导
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oslab1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    oslab1指导
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oslab2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    oslab2指导
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oslab3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    oslab3指导
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oslab4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    oslab4指导
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oslab5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    oslab5指导
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    oslab6指导
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    oslab6指导
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 实验目的
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 实验环境
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 背景知识
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 背景知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-fork" class="md-nav__link">
+    3.1 fork 系统调用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-fork-linux" class="md-nav__link">
+    3.2 fork 在 Linux 中的实际应用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4 实验步骤
+  </a>
+  
+    <nav class="md-nav" aria-label="4 实验步骤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 准备工作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-fork" class="md-nav__link">
+    4.4 实现 fork()
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4 实现 fork()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#441-sys_clone" class="md-nav__link">
+    4.4.1 sys_clone
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#442-__ret_from_fork" class="md-nav__link">
+    4.4.2 __ret_from_fork
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#443-code-skeleton" class="md-nav__link">
+    4.4.3 Code Skeleton
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    4.5 编译及测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    思考题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    作业提交
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    更多测试样例
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    blockchain
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            blockchain
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blockchain/basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blockchain/general/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    general
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="lab-6-fork">Lab 6: fork机制<a class="headerlink" href="#lab-6-fork" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>非常建议大家先通读整篇实验指导，完成思考题后再动手写代码</p>
+</blockquote>
+<h2 id="1">1. 实验目的<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>为 task 加入 <strong>fork</strong> 机制，能够支持通过 <strong>fork</strong> 创建新的用户态 task 。</li>
+</ul>
+<h2 id="2">2. 实验环境<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Environment in previous labs.</li>
+</ul>
+<h2 id="3">3. 背景知识<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31-fork">3.1 <code>fork</code> 系统调用<a class="headerlink" href="#31-fork" title="Permanent link">&para;</a></h3>
+<p><code>fork</code> 是 Linux 中的重要系统调用，它的作用是将进行了该系统调用的 task 完整地复制一份，并加入 Ready Queue。这样在下一次调度发生时，调度器就能够发现多了一个 task，从这时候开始，新的 task 就可能被正式从 Ready 调度到 Running，而开始执行了。</p>
+<ul>
+<li>子 task 和父 task 在不同的内存空间上运行。</li>
+<li><code>fork</code> 成功时，父 task  <code>返回值为子 task 的 pid</code>，子 task  <code>返回值为 0</code>；<code>fork</code> 失败，则父 task  <code>返回值为 -1</code>。</li>
+<li>
+<p>创建的子 task 需要 <strong>深拷贝</strong> <code>task_struct</code>，并且调整自己的页表、栈 和 CSR 等信息，同时还需要复制一份在用户态会用到的内存（用户态的栈、程序的代码和数据等），并且将自己伪装成是一个因为调度而加入了 Ready Queue 的普通程序来等待调度。在调度发生时，这个新 task 就像是原本就在等待调度一样，被调度器选择并调度。
+  <!-- * 创建的子 task 需要拷贝父 task  `task_struct`、`pgd`、`mm_struct` 以及父 task 的 `user stack` 等信息。 --></p>
+</li>
+<li>
+<p>Linux 中使用了 <code>copy-on-write</code> 机制，<code>fork</code> 创建的子 task 首先与父 task 共享物理内存空间，直到父子 task 有修改内存的操作发生时再为子 task 分配物理内存（因为逻辑较为复杂，不要求所有同学都实现，如果你觉得这个机制很有趣，可以在实验中完成 COW 机制）。</p>
+</li>
+</ul>
+<h3 id="32-fork-linux">3.2 <code>fork</code> 在 Linux 中的实际应用<a class="headerlink" href="#32-fork-linux" title="Permanent link">&para;</a></h3>
+<p>Linux 的另一个重要系统调用是 <code>exec</code>，它的作用是将进行了该系统调用的 task 换成另一个 task 。这两个系统调用一起，支撑起了 Linux 处理多任务的基础。当我们在 shell 里键入一个程序的目录时，shell（比如 zsh 或 bash）会先进行一次 fork，这时候相当于有两个 shell 正在运行。然后其中的一个 shell 根据 <code>fork</code> 的返回值（是否为 0），发现自己和原本的 shell 不同，再调用 <code>exec</code> 来把自己给换成另一个程序，这样 shell 外的程序就得以执行了。</p>
+<blockquote>
+<p>如果你对 fork 的更多细节感兴趣，可以在 Linux 命令行中执行以下指令：
+<code>man 2 fork</code>。
+GNU/Linux 提供了内容丰富的离线手册，它被分为若干章节，每个章节记录了不同的内容。其中，man 2，也就是手册的第二章，记录的是与 Linux 系统调用相关的帮助文档。</p>
+</blockquote>
+<h2 id="4">4 实验步骤<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 准备工作<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<ul>
+<li>此次实验基于 lab5 同学所实现的代码进行。</li>
+<li>从 repo 同步以下文件夹: user 并按照以下步骤将这些文件正确放置。</li>
+</ul>
+<div class="highlight"><pre><span></span><code>.
+└── user
+    ├── Makefile
+    ├── getpid.c
+    ├── link.lds
+    ├── printf.c
+    ├── start.S
+    ├── stddef.h
+    ├── stdio.h
+    ├── syscall.h
+    └── uapp.S
+</code></pre></div>
+<ul>
+<li>修改 <code>task_init</code> 函数中修改为仅初始化一个 task ，之后其余的 task 均通过 <code>fork</code> 创建。</li>
+</ul>
+<h3 id="44-fork">4.4 实现 fork()<a class="headerlink" href="#44-fork" title="Permanent link">&para;</a></h3>
+<h4 id="441-sys_clone">4.4.1 sys_clone<a class="headerlink" href="#441-sys_clone" title="Permanent link">&para;</a></h4>
+<p>Fork 在早期的 Linux 中就被指定了名字，叫做 <code>clone</code>,</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#define SYS_CLONE 220</span>
+</code></pre></div>
+<p>我们在实验原理中说到，fork 的关键在于状态和内存的复制。我们不仅需要完整地 <strong>深拷贝</strong> 一份页表以及 VMA 中记录的用户态的内存，还需要复制内核态的寄存器状态和内核态的内存。并且在最后，需要将 task “伪装”成是因为调度而进入了 Ready Queue。</p>
+<p>回忆一下我们是怎样使用 <code>task_struct</code> 的，我们并不是分配了一块刚好大小的空间，而是分配了一整个页，并将页的高处作为了 task 的内核态栈。</p>
+<div class="highlight"><pre><span></span><code>                    ┌─────────────┐◄─── High Address
+                    │             │
+                    │    stack    │
+                    │             │
+                    │             │
+              sp ──►├──────┬──────┤
+                    │      │      │
+                    │      ▼      │
+                    │             │
+                    │             │
+                    │             │
+                    │             │
+    4KB Page        │             │
+                    │             │
+                    │             │
+                    │             │
+                    ├─────────────┤
+                    │             │
+                    │             │
+                    │ task_struct │
+                    │             │
+                    │             │
+                    └─────────────┘◄─── Low Address
+</code></pre></div>
+<p>也就是说，内核态的所有数据，包括了栈、陷入内核态时的寄存器，还有上一次发生调度时，调用 <code>switch_to</code> 时的 <code>thread_struct</code> 信息，都被存在了这短短的 4K 内存中。这给我们的实现带来了很大的方便，这 4K 空间里的数据就是我们需要的所有所有内核态数据了！（当然如果你没有进行步骤 4.0, 那还需要开一个页并复制一份 <code>thread_info</code> 信息）</p>
+<p>除了内核态之外，你还需要 <strong>深拷贝</strong> 一份页表，并遍历页表中映射到 parent task 用户地址空间的页表项（为了减小开销，你需要根据 parent task 的 vmas 来 walk page table），这些应该由 parent task 专有的页，如果已经分配并且映射到 parent task 的地址空间中了，就需要你另外分配空间，并从原来的内存中拷贝数据到新开辟的空间，然后将新开辟的页映射到 child task 的地址空间中。想想为什么只要拷贝那些已经分配并映射的页，那些本来应该被分配并映射，但是暂时还没有因为 Page Fault 而被分配并映射的页怎么办?</p>
+<h4 id="442-__ret_from_fork">4.4.2 __ret_from_fork<a class="headerlink" href="#442-__ret_from_fork" title="Permanent link">&para;</a></h4>
+<p>让 fork 出来的 task 被正常调度是本实验**最重要**的部分。我们在 Lab3 中有一道思考题</p>
+<blockquote>
+<ol>
+<li>当线程第一次调用时, 其 <code>ra</code> 所代表的返回点是 <code>__dummy</code>。那么在之后的线程调用中 <code>context_switch</code> 中, <code>ra</code> 保存/恢复的函数返回点是什么呢? 请同学用 gdb 尝试追踪一次完整的线程切换流程, 并关注每一次 <code>ra</code> 的变换 (需要截图)。</li>
+</ol>
+</blockquote>
+<p>经过了对这个问题的思考，我们可以认识到，一个程序第一次被调度时，其实是可以选择返回到执行哪一个位置指令的。例如我们当时执行的 <code>__dummy</code>, 就替代了正常从 <code>switch_to</code> 返回的执行流。这次我们同样使用这个 trick，通过修改 <code>task_struct-&gt;thread.ra</code>，让程序 <code>ret</code> 时，直接跳转到我们设置的 symbol <code>__ret_from_fork</code>。 </p>
+<p>我们在 <code>_traps</code> 中的 <code>jal x1, trap_handler</code> 后面插入一个符号：</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="na">.global</span><span class="w"> </span><span class="no">_traps</span>
+<span class="nl">_traps:</span>
+<span class="w">    </span><span class="na">...</span>
+<span class="w">   </span><span class="nf">jal</span><span class="w"> </span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="no">trap_handler</span>
+<span class="w">    </span><span class="na">.global</span><span class="w"> </span><span class="no">__ret_from_fork</span>
+<span class="nl">__ret_from_fork:</span>
+<span class="w">    </span><span class="na">...</span><span class="w"> </span><span class="c1">;利用 sp 从栈中恢复出寄存器的值 </span>
+<span class="w">    </span><span class="nf">sret</span>
+</code></pre></div>
+<p>继续回忆，我们的 <code>__switch_to</code> 逻辑的后半段，就是从 <code>task_struct-&gt;thread</code> 中恢复 callee-saved registers 的值，其中正包括了我们恢复寄存器值所需要的 sp。</p>
+<p>自此我们知道，我们可以利用这两个寄存器，完成一个类似于 ROP(return oriented programming) 的操作。也就是说，我们通过控制 <code>ra</code> 寄存器，来控制程序的执行流，让它跳转到 context switch 的后半段；通过控制 <code>sp</code> 寄存器，从内核态的栈上恢复出我们在 <code>sys_clone</code> 时拷贝到新的 task 的栈上的，原本在 context switch 时被压入父 task 的寄存器值，然后通过 sret 直接跳回用户态执行用户态程序。</p>
+<p>于是，父 task 的返回路径是这样的：<code>sys_clone-&gt;trap_handler-&gt;_traps-&gt;user program</code>, 而我们新 <code>fork</code> 出来的 task, 要以这样的路径返回: <code>__switch_to-&gt;__ret_from_fork(in _traps)-&gt;user program</code>.</p>
+<h4 id="443-code-skeleton">4.4.3 Code Skeleton<a class="headerlink" href="#443-code-skeleton" title="Permanent link">&para;</a></h4>
+<p>某知名体系结构课程老师说过，skeleton 是给大家参考用的，不是给大家直接抄的。接下来我们给大家的代码框架 <strong>理论上</strong> 可以直接运行，因为在写作实验文档前某助教刚刚自己完整实现了一次。但是我们的当前的框架是最 Lean 的，也就是说虽然一定能跑，但是同学们照着这个来写可能会有一些不方便，同学可以自行修改框架，来更好地贴合自己的实现。</p>
+<p>我们要在存储所有 task 的数组 <code>task</code> 中寻找一个空闲的位置。我们用最简单的管理方式，将原本的 <code>task</code> 数组的大小开辟成 16, IDLE task 和 初始化时新建的 task 各占用一个，剩余 14 个全部赋值成 NULL。 如果 <code>task[pid] == NULL</code>, 说明这个 pid 还没有被占用，可以作为新 task 的 pid，并将 <code>task[pid]</code> 赋值为新的 <code>struct task_struct*</code>。由于我们的实验中不涉及 task 的销毁，所以这里的逻辑可以只管填充，不管擦除。</p>
+<p>在实现中，你需要始终思考的问题是，怎么才能够 <strong>让新创建的 task 获得调度后，正确地跳转到 <code>__ref_from_fork</code>, 并且利用 <code>sp</code> 正确地从内存中取值</strong> 。为了简单起见，<code>sys_clone</code> 只接受一个参数 <code>pt_regs *</code>，下面是代码框架：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">uint64_t</span><span class="w"> </span><span class="nf">sys_clone</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">pt_regs</span><span class="w"> </span><span class="o">*</span><span class="n">regs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     1. 参考 task_init 创建一个新的 task, 将的 parent task 的整个页复制到新创建的 </span>
+<span class="cm">        task_struct 页上(这一步复制了哪些东西?）。将 thread.ra 设置为 </span>
+<span class="cm">        __ret_from_fork, 并正确设置 thread.sp</span>
+<span class="cm">        (仔细想想，这个应该设置成什么值?可以根据 child task 的返回路径来倒推)</span>
+
+<span class="cm">     2. 利用参数 regs 来计算出 child task 的对应的 pt_regs 的地址，</span>
+<span class="cm">        并将其中的 a0, sp, sepc 设置成正确的值(为什么还要设置 sp?)</span>
+
+<span class="cm">     3. 为 child task 申请 user stack, 并将 parent task 的 user stack </span>
+<span class="cm">        数据复制到其中。 </span>
+
+<span class="cm">     3.1. 同时将子 task 的 user stack 的地址保存在 thread_info-&gt;</span>
+<span class="cm">        user_sp 中，如果你已经去掉了 thread_info，那么无需执行这一步</span>
+
+<span class="cm">     4. 为 child task 分配一个根页表，并仿照 setup_vm_final 来创建内核空间的映射</span>
+
+<span class="cm">     5. 根据 parent task 的页表和 vma 来分配并拷贝 child task 在用户态会用到的内存</span>
+
+<span class="cm">     6. 返回子 task 的 pid</span>
+<span class="cm">    */</span>
+<span class="p">}</span>
+</code></pre></div>
+<!-- // uint64_t sys_clone(struct pt_regs *regs) {
+//     return do_fork(regs);
+// }
+// ```
+// * 参考 `_trap` 中的恢复逻辑 在 `entry.S` 中实现 `ret_from_fork`，函数原型如下：
+//     * 注意恢复寄存器的顺序：
+//       * `a0` 应该最后被恢复
+//       * `sp` 不用恢复
+//       * 想想为什么?
+//     * `_trap` 中是从 `stack` 上恢复，这里从 `trapframe` 中恢复
+// ```c
+// void ret_from_fork(struct pt_regs *trapframe);
+// ```
+// * 修改 `Page Fault` 处理: 在之前的 `Page Fault` 处理中，我们对用户栈 `Page Fault` 处理方法是自由分配一页作为用户栈并映射到`[USER_END - PAGE_SIZE, USER_END)` 的虚拟地址。但由 `fork` 创建的 task ，它的用户栈已经拷贝完毕，因此 `Page Fault` 处理时直接为该页建立映射即可 (可以通过  `thread_info->user_sp` 来进行判断)。
+ -->
+
+<h3 id="45">4.5 编译及测试<a class="headerlink" href="#45" title="Permanent link">&para;</a></h3>
+<p>在测试时，由于大家电脑性能都不一样，如果出现了时钟中断频率比用户打印频率高很多的情况，可以减少用户程序里的 while 循环的次数来加快打印。这里的实例仅供参考，只要 OS 和用户态程序运行符合你的预期，那就是正确的。这里以我们给出的第三段 <code>main</code> 程序为例：</p>
+<ul>
+<li>输出示例</li>
+</ul>
+<div class="highlight"><pre><span></span><code>    OpenSBI v0.9
+     ____                    _____ ____ _____
+    / __ \                  / ____|  _ \_   _|
+   | |  | |_ __   ___ _ __ | (___ | |_) || |
+   | |  | | &#39;_ \ / _ \ &#39;_ \ \___ \|  _ &lt; | |
+   | |__| | |_) |  __/ | | |____) | |_) || |_
+    \____/| .__/ \___|_| |_|_____/|____/_____|
+          | |
+          |_|
+
+    Platform Name             : riscv-virtio,qemu
+    Platform Features         : timer,mfdeleg
+    Platform HART Count       : 1
+    Firmware Base             : 0x80000000
+    Firmware Size             : 100 KB
+    Runtime SBI Version       : 0.2
+
+    Domain0 Name              : root
+    Domain0 Boot HART         : 0
+    Domain0 HARTs             : 0*
+    Domain0 Region00          : 0x0000000080000000-0x000000008001ffff ()
+    Domain0 Region01          : 0x0000000000000000-0xffffffffffffffff (R,W,X)
+    Domain0 Next Address      : 0x0000000080200000
+    Domain0 Next Arg1         : 0x0000000087000000
+    Domain0 Next Mode         : S-mode
+    Domain0 SysReset          : yes
+
+    Boot HART ID              : 0
+    Boot HART Domain          : root
+    Boot HART ISA             : rv64imafdcsu
+    Boot HART Features        : scounteren,mcounteren,time
+    Boot HART PMP Count       : 16
+    Boot HART PMP Granularity : 4
+    Boot HART PMP Address Bits: 54
+    Boot HART MHPM Count      : 0
+    Boot HART MHPM Count      : 0
+    Boot HART MIDELEG         : 0x0000000000000222
+    Boot HART MEDELEG         : 0x000000000000b109
+    [S] buddy_init done!
+    [S] Initialized: pid: 1, priority: 1, counter: 0
+    [S] 2022 Hello RISC-V
+    [S] Value of sstatus is 8000000000006002
+    [S] Set schedule: pid: 1, priority: 1, counter: 4
+    [S] Switch to: pid: 1, priority: 1, counter: 4
+    [S] Supervisor Page Fault, scause: 000000000000000c
+    [S] Supervisor Page Fault, scause: 000000000000000f, stval: 0000003ffffffff8, sepc: 0000000000010158
+    [S] Supervisor Page Fault, scause: 000000000000000d, stval: 0000000000011a00, sepc: 000000000001017c
+    [U] pid: 1 is running!, global_variable: 0
+    [U] pid: 1 is running!, global_variable: 1
+    [U] pid: 1 is running!, global_variable: 2
+    [S] New task: 2
+    [U-PARENT] pid: 1 is running!, global_variable: 3
+    [U-PARENT] pid: 1 is running!, global_variable: 4
+    [U-PARENT] pid: 1 is running!, global_variable: 5
+    [S] Supervisor Mode Timer Interrupt
+    [U-PARENT] pid: 1 is running!, global_variable: 6
+    [U-PARENT] pid: 1 is running!, global_variable: 7
+    [S] Supervisor Mode Timer Interrupt
+    [U-PARENT] pid: 1 is running!, global_variable: 8
+    [U-PARENT] pid: 1 is running!, global_variable: 9
+    [S] Supervisor Mode Timer Interrupt
+    [U-PARENT] pid: 1 is running!, global_variable: 10
+    [U-PARENT] pid: 1 is running!, global_variable: 11
+    [S] Supervisor Mode Timer Interrupt
+    [S] Switch to: pid: 2, priority: 1, counter: 3
+    [U-CHILD] pid: 2 is running!, global_variable: 3
+    [U-CHILD] pid: 2 is running!, global_variable: 4
+    [U-CHILD] pid: 2 is running!, global_variable: 5
+    [S] Supervisor Mode Timer Interrupt
+    [U-CHILD] pid: 2 is running!, global_variable: 6
+    [U-CHILD] pid: 2 is running!, global_variable: 7
+    [S] Supervisor Mode Timer Interrupt
+    [U-CHILD] pid: 2 is running!, global_variable: 8
+    [U-CHILD] pid: 2 is running!, global_variable: 9
+    [S] Supervisor Mode Timer Interrupt
+    [S] Set schedule: pid: 1, priority: 1, counter: 10
+    [S] Set schedule: pid: 2, priority: 1, counter: 4
+    [S] Switch to: pid: 2, priority: 1, counter: 4
+    [U-CHILD] pid: 2 is running!, global_variable: 10
+</code></pre></div>
+<h2 id="_1">思考题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>使用 Ctrl-f 来搜寻当前页面中的问号，根据上下文来回答这些问题：</p>
+<ol>
+<li>参考 task_init 创建一个新的 task, 将的 parent task 的整个页复制到新创建的 task_struct 页上, 这一步复制了哪些东西?</li>
+<li>将 thread.ra 设置为 <code>__ret_from_fork</code>, 并正确设置 <code>thread.sp</code>。仔细想想，这个应该设置成什么值?可以根据 child task 的返回路径来倒推。</li>
+<li>利用参数 regs 来计算出 child task 的对应的 pt_regs 的地址，并将其中的 a0, sp, sepc 设置成正确的值。为什么还要设置 sp?</li>
+</ol>
+<h2 id="_2">作业提交<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>同学需要提交实验报告以及整个工程代码。在提交前请使用 <code>make clean</code> 清除所有构建产物。</p>
+<h2 id="_3">更多测试样例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>下面是同学提供的测试样例，不强制要求大家都运行一遍。但是如果想增强一下对自己写的代码的信心，可以尝试替换 <code>main</code> 并运行。如果你有其他适合用来测试的代码，欢迎为仓库做出贡献。</p>
+<p><a href="https://frightenedfoxcn.github.io/blog/">lhjgg</a> 给出的样例：</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#define LARGE 1000</span>
+
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">something_large_here</span><span class="p">[</span><span class="n">LARGE</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">times</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">times</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="n">times</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="n">times</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">LARGE</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">something_large_here</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">pid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fork</span><span class="p">();</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;[U] fork returns %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pid</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;[U-CHILD] pid: %ld is running! the %dth fibonacci number is %d and the number @ %d in the large array is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">getpid</span><span class="p">(),</span><span class="w"> </span><span class="n">global_variable</span><span class="p">,</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="n">global_variable</span><span class="p">),</span><span class="w"> </span><span class="n">LARGE</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">global_variable</span><span class="p">,</span><span class="w"> </span><span class="n">something_large_here</span><span class="p">[</span><span class="n">LARGE</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">global_variable</span><span class="p">]);</span>
+<span class="w">      </span><span class="n">global_variable</span><span class="o">++</span><span class="p">;</span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mh">0xFFFFFF</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;[U-PARENT] pid: %ld is running! the %dth fibonacci number is %d and the number @ %d in the large array is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">getpid</span><span class="p">(),</span><span class="w"> </span><span class="n">global_variable</span><span class="p">,</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="n">global_variable</span><span class="p">),</span><span class="w"> </span><span class="n">LARGE</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">global_variable</span><span class="p">,</span><span class="w"> </span><span class="n">something_large_here</span><span class="p">[</span><span class="n">LARGE</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">global_variable</span><span class="p">]);</span>
+<span class="w">      </span><span class="n">global_variable</span><span class="o">++</span><span class="p">;</span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mh">0xFFFFFF</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>有一个可能的bug就是两个线程算出来的同一个斐波那契数不一致，这时候就是用户栈切换的问题，其他样例应该测不出来. 删了几行之后的错误示范（
+<img alt="1 ZE$IPCYT2}N)7~XIBG3_1" src="https://user-images.githubusercontent.com/57927141/205851029-d283ecd8-d2b2-4aa9-9af3-bdd94fe1aea9.png" /></p>
+</blockquote>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        咦，这里怎么有一只小猫咪
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 8-1.33.09C9.81 7.07 7.4 4.5 5 4.5c0 0-1.97 2.96-.04 6.91-.55.83-.89 1.26-.96 2.25l-1.93.29.21.98 1.76-.26.14.71-1.57.94.47.89 1.45-.89C5.68 18.76 8.59 20 12 20s6.32-1.24 7.47-3.68l1.45.89.47-.89-1.57-.94.14-.71 1.76.26.21-.98-1.93-.29c-.07-.99-.41-1.42-.96-2.25C20.97 7.46 19 4.5 19 4.5c-2.4 0-4.81 2.57-5.67 3.59L12 8m-3 3a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 3h2l-.7 1.39c.2.64.76 1.11 1.45 1.11a1.5 1.5 0 0 0 1.5-1.5h.5a2 2 0 0 1-2 2c-.75 0-1.4-.41-1.75-1-.35.59-1 1-1.75 1a2 2 0 0 1-2-2h.5a1.5 1.5 0 0 0 1.5 1.5c.69 0 1.25-.47 1.45-1.11L11 14Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              小猫咪很开心！
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../oslab5/" class="md-footer__link md-footer__link--prev" aria-label="上一页: oslab5指导">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                oslab5指导
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../blockchain/basics/" class="md-footer__link md-footer__link--next" aria-label="下一页: basics">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                basics
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 JLY
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/jly191" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.prune", "navigation.footer", "toc.follow", "toc.integrate", "search.suggest", "header.autohide", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
