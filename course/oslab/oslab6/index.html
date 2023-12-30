@@ -1364,7 +1364,7 @@ GNU/Linux 提供了内容丰富的离线手册，它被分为若干章节，每�
 <p>也就是说，内核态的所有数据，包括了栈、陷入内核态时的寄存器，还有上一次发生调度时，调用 <code>switch_to</code> 时的 <code>thread_struct</code> 信息，都被存在了这短短的 4K 内存中。这给我们的实现带来了很大的方便，这 4K 空间里的数据就是我们需要的所有所有内核态数据了！（当然如果你没有进行步骤 4.0, 那还需要开一个页并复制一份 <code>thread_info</code> 信息）</p>
 <p>除了内核态之外，你还需要 <strong>深拷贝</strong> 一份页表，并遍历页表中映射到 parent task 用户地址空间的页表项（为了减小开销，你需要根据 parent task 的 vmas 来 walk page table），这些应该由 parent task 专有的页，如果已经分配并且映射到 parent task 的地址空间中了，就需要你另外分配空间，并从原来的内存中拷贝数据到新开辟的空间，然后将新开辟的页映射到 child task 的地址空间中。想想为什么只要拷贝那些已经分配并映射的页，那些本来应该被分配并映射，但是暂时还没有因为 Page Fault 而被分配并映射的页怎么办?</p>
 <h4 id="442-__ret_from_fork">4.4.2 __ret_from_fork<a class="headerlink" href="#442-__ret_from_fork" title="Permanent link">&para;</a></h4>
-<p>让 fork 出来的 task 被正常调度是本实验**最重要**的部分。我们在 Lab3 中有一道思考题</p>
+<p>让 fork 出来的 task 被正常调度是本实验 <strong>最重要</strong> 的部分。我们在 Lab3 中有一道思考题</p>
 <blockquote>
 <ol>
 <li>当线程第一次调用时, 其 <code>ra</code> 所代表的返回点是 <code>__dummy</code>。那么在之后的线程调用中 <code>context_switch</code> 中, <code>ra</code> 保存/恢复的函数返回点是什么呢? 请同学用 gdb 尝试追踪一次完整的线程切换流程, 并关注每一次 <code>ra</code> 的变换 (需要截图)。</li>
