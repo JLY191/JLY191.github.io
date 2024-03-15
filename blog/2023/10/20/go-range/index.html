@@ -1212,6 +1212,7 @@
 
 
 <h1 id="go-range">Go Range的奇怪机制<a class="headerlink" href="#go-range" title="Permanent link">&para;</a></h1>
+<p><strong>在Go1.22.0中已经得到修正，如果go.mod声明为1.22.x版本，会自动使用新的语义</strong></p>
 <p>在下面的代码中，请问输出是什么？
 <div class="highlight"><pre><span></span><code><span class="nx">l</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">}</span><span class="w">  </span>
 <span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">l</span><span class="w"> </span><span class="p">{</span>
