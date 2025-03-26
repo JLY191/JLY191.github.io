@@ -2,107 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://jly191.github.io/</loc>
-         <lastmod>2024-03-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-03-26</lastmod>
     </url>
     <url>
          <loc>https://jly191.github.io/blog/</loc>
-         <lastmod>2024-03-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-03-26</lastmod>
     </url>
     <url>
-         <loc>https://jly191.github.io/blog/2023/10/20/go-range/</loc>
-         <lastmod>2024-03-15</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://jly191.github.io/blog/2023/10/20/go-range%E7%9A%84%E5%A5%87%E6%80%AA%E6%9C%BA%E5%88%B6/</loc>
+         <lastmod>2025-03-26</lastmod>
     </url>
     <url>
-         <loc>https://jly191.github.io/blog/2023/10/19/</loc>
-         <lastmod>2024-03-15</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://jly191.github.io/blog/2023/10/19/%E5%8D%9A%E5%AE%A2%E9%A6%96%E9%A1%B5/</loc>
+         <lastmod>2025-03-26</lastmod>
     </url>
     <url>
          <loc>https://jly191.github.io/course/</loc>
-         <lastmod>2024-03-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-03-26</lastmod>
     </url>
     <url>
          <loc>https://jly191.github.io/course/blockchain/basics/</loc>
-         <lastmod>2024-03-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-03-26</lastmod>
     </url>
     <url>
          <loc>https://jly191.github.io/course/blockchain/general/</loc>
-         <lastmod>2024-03-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-03-26</lastmod>
     </url>
     <url>
          <loc>https://jly191.github.io/course/oslab/oslab0/</loc>
-         <lastmod>2024-03-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-03-26</lastmod>
     </url>
     <url>
          <loc>https://jly191.github.io/course/oslab/oslab1/</loc>
-         <lastmod>2024-03-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-03-26</lastmod>
     </url>
     <url>
          <loc>https://jly191.github.io/course/oslab/oslab2/</loc>
-         <lastmod>2024-03-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-03-26</lastmod>
     </url>
     <url>
          <loc>https://jly191.github.io/course/oslab/oslab3/</loc>
-         <lastmod>2024-03-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-03-26</lastmod>
     </url>
     <url>
          <loc>https://jly191.github.io/course/oslab/oslab4/</loc>
-         <lastmod>2024-03-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-03-26</lastmod>
     </url>
     <url>
          <loc>https://jly191.github.io/course/oslab/oslab5/</loc>
-         <lastmod>2024-03-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-03-26</lastmod>
     </url>
     <url>
          <loc>https://jly191.github.io/course/oslab/oslab6/</loc>
-         <lastmod>2024-03-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-03-26</lastmod>
     </url>
     <url>
          <loc>https://jly191.github.io/course/oslab/oslab7/</loc>
-         <lastmod>2024-03-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-03-26</lastmod>
     </url>
     <url>
          <loc>https://jly191.github.io/dev/</loc>
-         <lastmod>2024-03-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-03-26</lastmod>
     </url>
     <url>
          <loc>https://jly191.github.io/dev/regex/regex/</loc>
-         <lastmod>2024-03-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-03-26</lastmod>
     </url>
     <url>
          <loc>https://jly191.github.io/blog/archive/2023/</loc>
-         <lastmod>2024-03-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-03-26</lastmod>
     </url>
     <url>
          <loc>https://jly191.github.io/blog/category/go/</loc>
-         <lastmod>2024-03-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-03-26</lastmod>
     </url>
     <url>
          <loc>https://jly191.github.io/blog/category/interesting/</loc>
-         <lastmod>2024-03-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-03-26</lastmod>
     </url>
     <url>
          <loc>https://jly191.github.io/blog/category/debug/</loc>
-         <lastmod>2024-03-15</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-03-26</lastmod>
     </url>
 </urlset>
